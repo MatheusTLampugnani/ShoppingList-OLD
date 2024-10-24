@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-500 h-screen flex">
+
+    <!-- Sidebar -->
+    <div class="bg-white w-1/5 p-8 flex flex-col items-center pt-10">
+        <!-- Logo -->
+        <div class="flex flex-col items-center text-3xl">
+            <span class="text-black font-bold">SHOPPING LIST</span>
+            <a href="{%url 'index'%}">
+                <img src="../static/imgs/lista-de-controle (1).png" alt="logo" class="w-12 h-12 mb-4">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex flex-col justify-between w-4/5 text-white p-8">
+        <!-- Title at the top -->
+        <h1 class="text-4xl font-bold self-center mb-8">SUAS LISTAS DE COMPRAS</h1>
+
+        <!-- Center message -->
+        <div class="flex-grow flex flex-col justify-center items-center">
+            <p class="text-xl mb-8">NENHUMA LISTA ENCONTRADA</p>
+        </div>
+
+        <!-- Create list button aligned at the bottom-right -->
+        <div class="flex justify-end">
+            <a href="{% url 'criarlista' %}">
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                    CRIAR LISTA
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</html>
