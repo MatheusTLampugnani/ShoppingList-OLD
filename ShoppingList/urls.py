@@ -1,6 +1,7 @@
 from django.urls import path
-from ShoppingList.views import index
+from ShoppingList.views import index, criarlista
 
-urlspatterns = [
-    path('', index),
+urlpatterns = [
+    path('', index, name='index'),
+    path('criarlista/', criarlista, name='criarlista')
 ]
