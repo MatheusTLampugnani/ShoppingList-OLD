@@ -1629,3 +1629,7 @@ video {
   fill: white;
   cursor: pointer;
 }
+
+.pt-50{
+  padding-top: 50px;
+}
