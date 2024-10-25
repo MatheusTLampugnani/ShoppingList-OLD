@@ -1,0 +1,56 @@
+<!-- accounts/templates/accounts/register.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-500 flex items-center justify-center min-h-screen">
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md flex items-center">
+        <a href="{% url 'index' %}" class="ml-4">
+            <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-24 mb-4">
+        </a>
+    </header>
+
+    <div class="register-container bg-white shadow-md rounded-lg p-8 w-96">
+        <h2 class="text-2xl font-bold mb-6 text-center">Registrar</h2>
+
+        {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                    <p class="text-red-500">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Usuário:</label>
+                <input type="text" id="username" name="username" required 
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
+                <input type="password" id="password" name="password" required 
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Senha:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required 
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition">Registrar</button>
+        </form>
+
+        <p class="mt-4 text-center text-sm">
+            Já tem uma conta? <a href="{% url 'login' %}" class="text-blue-500 hover:underline">Entrar</a>
+        </p>
+    </div>
+</body>
+</html>

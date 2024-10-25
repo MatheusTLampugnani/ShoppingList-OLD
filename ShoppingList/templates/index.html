@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List</title>
+    <title>Lista de Compras</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-500 h-screen flex">
 
     <!-- Sidebar -->
-    <div class="bg-white w-1/5 p-8 flex flex-col items-center pt-10">
+    <div class="bg-white w-1/5 p-8 flex flex-col items-center justify-between pt-10 h-full">
         <!-- Logo -->
         <div class="flex flex-col items-center text-3xl">
             <a href="{% url 'index' %}">
-                <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-50 mb-4">
+                <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-24 mb-4">
             </a>
         </div>
+        <a href="{% url 'login' %}">
+            <img src="../static/imgs/entrar.png" alt="logo" class="w-50 h-50 mb-0 mt-auto">
+        </a>
     </div>
 
-    <!-- Main content -->
     <div class="flex flex-col justify-between w-4/5 text-white p-8">
-        <!-- Title at the top -->
         <h1 class="text-4xl font-bold self-center mb-8">SUAS LISTAS DE COMPRAS</h1>
+        
+        <!-- Tabela para exibir dados -->
+        <table class="table-auto w-full bg-white shadow-md rounded border-collapse">
+            <thead>
+                <tr>
+                    {% for col in dados.0.keys %}
+                        <th class="border px-4 py-2 text-black ">{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in dados %}
+                    <tr>
+                        {% for value in row.values %}
+                            <td class="border px-4 py-2 text-black">{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-        <!-- Create list button aligned at the bottom-right -->
         <div class="flex justify-end">
             <a href="{% url 'criarlista' %}">
                 <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
@@ -32,7 +52,5 @@
             </a>
         </div>
     </div>
-
-
 </body>
 </html>
