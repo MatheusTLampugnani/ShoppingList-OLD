@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shoppinglist_db',
+        'NAME': 'db_teste',
         'USER': 'lampugman',
         'PASSWORD': 'L@mpugn4n1',
         'HOST': 'localhost',
