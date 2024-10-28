@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <body class="bg-gray-500 flex items-center justify-center min-h-screen">
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md flex items-center">
-        <a href="{% url 'index' %}" class="ml-4">
-            <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-24 mb-4">
-        </a>
-    </header>
+   
+
 
     <div class="login-container bg-white shadow-md rounded-lg p-8 w-96 mt-20">
         <h2 class="text-2xl font-bold mb-6 text-center">Entrar</h2>
@@ -28,13 +20,13 @@
         <form method="post" class="space-y-4">
             {% csrf_token %}
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Usuário:</label>
-                <input type="text" id="name" name="name" required 
+                <label for="nome" class="block text-sm font-medium text-gray-700">Usuário:</label>
+                <input type="text" id="nome" name="nome" required 
                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
-                <input type="password" id="password" name="password" required 
+                <label for="senha" class="block text-sm font-medium text-gray-700">Senha:</label>
+                <input type="password" id="senha" name="senha" required 
                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <p class="mt-4 text-sm text-center">

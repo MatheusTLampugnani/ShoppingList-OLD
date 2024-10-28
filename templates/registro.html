@@ -1,18 +1,10 @@
-<!-- accounts/templates/accounts/register.html -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
 <body class="bg-gray-500 flex items-center justify-center min-h-screen">
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md flex items-center">
-        <a href="{% url 'index' %}" class="ml-4">
-            <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-24 mb-4">
-        </a>
-    </header>
+    
+
 
     <div class="register-container bg-white shadow-md rounded-lg p-8 w-96">
         <h2 class="text-2xl font-bold mb-6 text-center">Registrar</h2>
@@ -25,23 +17,29 @@
             </div>
         {% endif %}
 
-        <form method="post" class="space-y-4">
+        <form method="post" action="{% url 'registro' %}" class="space-y-4">
             {% csrf_token %}
             <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Usuário:</label>
-                <input type="text" id="username" name="username" required 
+                <label for="nome" class="block text-sm font-medium text-gray-700">Usuário:</label>
+                <input type="text" id="nome" name="nome" required 
                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 
             <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
-                <input type="password" id="password" name="password" required 
+                <label for="email" class="block text-sm font-medium text-gray-700">E-mail:</label>
+                <input type="text" id="email" name="email" required 
                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 
             <div>
-                <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Senha:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required 
+                <label for="senha" class="block text-sm font-medium text-gray-700">Senha:</label>
+                <input type="password" id="senha" name="senha" required 
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label for="confirmar_senha" class="block text-sm font-medium text-gray-700">Confirmar Senha:</label>
+                <input type="password" id="confirmar_senha" name="confirmar_senha" required 
                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 

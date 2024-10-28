@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Compras</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
 <body class="bg-gray-500 h-screen flex">
 
-    <!-- Sidebar -->
-    <div class="bg-white w-1/5 p-8 flex flex-col items-center justify-between pt-10 h-full">
-        <!-- Logo -->
-        <div class="flex flex-col items-center text-3xl">
-            <a href="{% url 'index' %}">
-                <img src="../static/imgs/shopping.png" alt="logo" class="w-50 h-24 mb-4">
-            </a>
-        </div>
-        <a href="{% url 'login' %}">
-            <img src="../static/imgs/entrar.png" alt="logo" class="w-50 h-50 mb-0 mt-auto">
-        </a>
-    </div>
+    
 
     <div class="flex flex-col justify-between w-4/5 text-white p-8">
         <h1 class="text-4xl font-bold self-center mb-8">SUAS LISTAS DE COMPRAS</h1>
         
         <!-- Tabela para exibir dados -->
-        <table class="table-auto w-full bg-white shadow-md rounded border-collapse">
+        <!--<table class="table-auto w-full bg-white shadow-md rounded border-collapse">
             <thead>
                 <tr>
                     {% for col in dados.0.keys %}
@@ -42,7 +27,7 @@
                     </tr>
                 {% endfor %}
             </tbody>
-        </table>
+        </table>-->
 
         <div class="flex justify-end">
             <a href="{% url 'criarlista' %}">
